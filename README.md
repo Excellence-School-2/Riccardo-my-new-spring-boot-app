@@ -2,4 +2,5 @@
 
 Questa è la mia prima app
 
-- [x] opzione 1
+- [x] Opzione 1
+- [ ] Opzione 2
