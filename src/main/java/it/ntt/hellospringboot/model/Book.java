@@ -1,8 +1,26 @@
 package it.ntt.hellospringboot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Book {
-    private String title;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String isbn;
+    private String title;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
     
     public Book() {
 
@@ -39,6 +57,35 @@ public class Book {
      */
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+
+    /**
+     * @return Long return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return Author return the author
+     */
+    public Author getAuthor() {
+        return author;
+    }
+
+    /**
+     * @param author the author to set
+     */
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
 }
